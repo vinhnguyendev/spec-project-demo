@@ -1,0 +1,60 @@
+div.foodTracker-container{
+    display: flex;
+    flex-direction: row;  
+    justify-content: center; 
+   
+    width: 100vw;
+    
+}
+
+
+div.tracker-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(123, 164, 190);
+    width: 1200px;
+    margin-top: 200px;
+    margin: 100px;
+}
+
+
+
+  div.date-container{
+    display: flex;
+    justify-content: center;
+  }
+
+  div.content-container{
+    
+  }
+
+
+
+  div.response-container{
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  
+  }
+
+  div.response-item-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top:2px solid green ;
+  }
+
+  #delete-button {
+    width: 30px;
+    font-weight: 700;
+    height: 30px;
+    align-self: center;
+    background-color: rgb(236, 82, 82);
+    color: white;
+    border-radius: 25px;
+    border: none;
+   
+  }
+
+

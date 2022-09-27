@@ -1,0 +1,73 @@
+div.dashboard-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+
+
+div.header-container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  width: 70%;
+  align-self: center;
+  
+}
+
+div.nutr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-top: 3px solid green;
+  
+  
+}
+
+div.nutr-text{
+    font-size: larger;
+    padding: 10px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-weight: 500;
+    align-self: flex-start;
+    text-align: start;
+}
+
+button.add-button {
+    width: 30px;
+    font-weight: 700;
+    border-radius: 40px;
+    height: 30px;
+    align-self: center;
+    background-color: green;
+    color: white;
+}
+
+div#item-name{
+    
+    width: 200px;
+    
+    
+}
+
+.nutr-label{
+    padding-right: 5px;
+}
+
+#nutr-protein{
+    color: rgb(165, 69, 42);
+}
+
+#nutr-fat{
+    color: rgb(255, 179, 0);
+}
+
+#nutr-carb{
+    color:green;
+}
+
+#nutr-cal {
+    color: rgb(82, 82, 82);
+}
