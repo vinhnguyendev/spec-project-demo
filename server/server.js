@@ -3,12 +3,14 @@ const cors = require("cors");
 const axios = require("axios");
 const bodyParser = require("body-parser");
 const db = require('./user')
+require('dotenv').config()
 
 const {auth, checkUser, createUserOrder} = require('./auth');
 const session = require("express-session");
+const {SERVER_PORT} = process.env
 
 
-
+console.log(process.env)
 
 const app = express();
 
@@ -55,5 +57,5 @@ app.post('/order-history', db.getOrderByDate)
 
 
 //SERVER
-const PORT = 5055
-app.listen(PORT, () => console.log(`Server is live on port ${PORT}`));
+
+app.listen(SERVER_PORT, () => console.log(`Server is live on port ${SERVER_PORT}`));
