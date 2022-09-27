@@ -12,14 +12,11 @@ const pool = new Pool({
 module.exports = {
   auth: async (req, res) => {
     const { name, email, password } = req.body;
-    console.log(req.body);
-    console.log(email);
-
-    const userRequest = await pool.query(
+      const userRequest = await pool.query(
       `SELECT * FROM users WHERE email = '${email}'`
     );
     const user = userRequest.rows[0];
-    console.log(user);
+    
 
     if (user) {
       console.log("it's a login");
@@ -27,10 +24,10 @@ module.exports = {
       if (authenticated) {
         console.log("it's auth!");
         const userInfo = { name: user.name, email: user.email, id: user.id };
-        console.log(req.session);
+        
+        //session user
         req.session.user = userInfo;
-        console.log(req.session);
-
+      console.log(userInfo)
         res.status(200).send(userInfo);
       } else {
         console.log("it's not auth!");
@@ -54,6 +51,26 @@ module.exports = {
       }
     }
   },
+  createUserOrder: (request, response) => {
+    const { name, cal, protein, fat, carb, date } = request.body;
+    console.log(request.body);
+    
+    console.log(request.session);
+   
+  
+    // pool.query(
+    //   'INSERT INTO order ("user_id","item_name","cal","protein","fat","carb","date") VALUES ($1, $2, $3, $4,$5,$6)',
+    //   [name, cal, protein, fat, carb, date],
+    //   (error, results) => {
+    //     if (error) {
+    //       throw error;
+    //     }
+    //     response.status(201).send(`User added with ID: ${results.insertid}`);
+    //   }
+    // );
+  },
+  
+
 
   checkUser: (req, res) => {
     if (req.session.user) {
@@ -63,16 +80,5 @@ module.exports = {
     }
   },
 
-  createUserOrder: (request, response) => {
-    const {name,cal,protein,fat,carb,date } = request.body;
-    console.log(request.body)
-    console.log(request.session)
-    
-    //ask checkuser session
-  // axios
-  // .get('http://localhost:5055/check')
-  // .then(res => {
-  //   console.log(res)
-  // })
-  }  
+
 };

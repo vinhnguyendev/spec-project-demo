@@ -3,6 +3,7 @@ import "./FoodCard.css";
 import axios from "axios";
 axios.defaults.withCredentials = true
 
+
 function FoodCard(props) {
   const data = props.value;
   console.log(data);
@@ -27,7 +28,7 @@ function FoodCard(props) {
         carb: item.nutrients.CHOCDF,
         date: orderDate(),
         };
-
+       
         console.log(userSelect);
         axios.post("http://localhost:5055/usersorder", userSelect);
       } else {

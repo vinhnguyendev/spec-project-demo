@@ -16,7 +16,7 @@ function Login() {
     axios
     .post("http://localhost:5055/login", user)
     .then((res) => {
-      console.log(res.data);
+      console.log(res);
     });
   };
 

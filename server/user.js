@@ -2,7 +2,6 @@ const { response } = require("express");
 const { request, get } = require("http");
 const axios = require("axios");
 
-
 const Pool = require("pg").Pool;
 const pool = new Pool({
   user: "me",
@@ -22,10 +21,10 @@ const pool = new Pool({
 // };
 
 // const getUserById = (req, res) => {
-    
+
 //   const id = parseInt(req.params.id);
 
-//   pool.query("SELECT * FROM users WHERE id = $1", 
+//   pool.query("SELECT * FROM users WHERE id = $1",
 //   [id], (error, results) => {
 //     if (error) {
 //       throw error;
@@ -36,7 +35,7 @@ const pool = new Pool({
 
 // const createUser = (request, response) => {
 //   const { name, email, password } = request.body;
-  
+
 //   pool.query(
 //     "INSERT INTO users (name, email, password) VALUES ($1, $2, $3)",
 //     [name, email, password],
@@ -78,38 +77,26 @@ const pool = new Pool({
 //   });
 // };
 
-
 //user order
-
-
-  
-  
-  // pool.query(
-  //   'INSERT INTO order ("user_id","item_name","cal","protein","fat","carb","date") VALUES ($1, $2, $3, $4,$5,$6)',
-  //   [user_id,name,cal,protein,fat,carb,date],
-  //   (error, results) => {
-  //     if (error) {
-  //       throw error;
-  //     }
-  //     response.status(201).send(`User added with ID: ${results.insertid}`);
-  //   });
 
 
 //user request order history
 const getOrderByDate = async (req, res) => {
-    
-  const date = (req.body.date);
-  console.log(date)
+  const date = req.body.date;
+  console.log(date);
 
-  pool.query('SELECT "productName","productCal" FROM customer WHERE "orderDate" = $1', 
-  [date], (error, results) => {
-    if (error) {
-      throw error;
+  pool.query(
+    'SELECT "productName","productCal" FROM customer WHERE "orderDate" = $1',
+    [date],
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
+      res.status(200).send(results.rows);
+
+      console.log(results.rows);
     }
-    res.status(200).send(results.rows);
-    
-    console.log(results.rows)
-  });
+  );
 };
 
 module.exports = {
@@ -119,5 +106,5 @@ module.exports = {
   // updateUser,
   // deleteUser,
   // createUserOrder,
-  getOrderByDate
+  getOrderByDate,
 };

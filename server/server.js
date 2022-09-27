@@ -10,14 +10,13 @@ const session = require("express-session");
 const {SERVER_PORT} = process.env
 
 
-console.log(process.env)
 
 const app = express();
 
 app.use(session({
   resave:false,
-  saveUninitialized:true,
-  secret: "asds?3;axytrfd33'?!sd?12e;asd",
+  saveUninitialized: true,
+  secret: "asds?3;axytrfd33'?!sd?12e;asx",
   cookie:{
     // maxAge:1000*60*60*72,
     secure: !true
@@ -57,5 +56,5 @@ app.post('/order-history', db.getOrderByDate)
 
 
 //SERVER
-
-app.listen(SERVER_PORT, () => console.log(`Server is live on port ${SERVER_PORT}`));
+const PORT = 5055
+app.listen(PORT, () => console.log(`Server is live on port ${PORT}`));
