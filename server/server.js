@@ -5,13 +5,16 @@ const bodyParser = require("body-parser");
 const db = require('./user')
 require('dotenv').config()
 
-const {auth, checkUser, createUserOrder} = require('./auth');
+const {auth, checkUser} = require('./auth');
 const session = require("express-session");
 const {SERVER_PORT} = process.env
 
 
 
 const app = express();
+
+app.use(express.json());
+app.use(cors({credentials: true,origin: "http://localhost:3000"}));
 
 app.use(session({
   resave:false,
@@ -29,24 +32,28 @@ app.use(
     extended: true,
   })
 );
-app.use(express.json());
-app.use(cors({credentials: true,origin: "http://localhost:3000"}));
+
 
 //session boiler
-
+const test = () => async (req, res) => {
+  const { name, email, password } = req.body;
+  res.status(200).send(true);
+}
 
 //USER
 
 // app.get('/users', db.getUsers)
-// app.get('/users/:id', db.getUserById)
+app.get('/users/:id', db.getUserById)
 // app.post('/users', db.createUser)
 // app.put('/users/:id', db.updateUser)
 // app.delete('/users/:id', db.deleteUser)
 
 app.post('/login', auth)
-app.get('/check', checkUser)
-app.post('/usersorder', createUserOrder)
+// app.get('/check', checkUser)
+app.post('/usersorder', db.createUserOrder)
 app.post('/order-history', db.getOrderByDate)
+app.post('/test', test())
+
 
 
 

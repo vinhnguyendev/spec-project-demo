@@ -4,25 +4,55 @@ div.dashboard-container{
     justify-content: center;
 
 }
-
-
-
 div.header-container {
   display: flex;
   flex-direction: column;
-  background-color: rgb(255, 255, 255);
-  width: 70%;
-  align-self: center;
-  
+  background-color: rgb(204, 204, 204);
+  width: 100%;
+  align-self: center; 
 }
-
 div.nutr {
   display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  border: 0.2rem solid rgb(128, 128, 128, 0.5);
+  margin: 25px;
+  background-color: rgb(255, 255, 255);  
+}
+.nutr .foodcard-header{
+  display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  border-top: 3px solid green;
-  
-  
+  justify-content: space-between;
+  border-bottom: 0.3rem solid rgb(128, 128, 128, 0.5);
+}
+
+.foodcard-header .icon-container{
+    display: flex;
+    flex-direction: row;
+    gap: 10rem;
+    width: 50%;
+    padding: 2rem;
+    font-size: 5.5rem;
+    
+}
+.icon-container .food_category{
+    color: grey;
+}
+.icon-container .icon_category{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgb(47, 47, 47);
+}
+
+.nutr .foodcard-body{
+    display: flex;
+    flex-direction: row;
+}
+
+.food-item-details-container .food-item-details{
+    display: flex;
+    flex-direction: row;
 }
 
 div.nutr-text{
@@ -33,27 +63,33 @@ div.nutr-text{
     font-weight: 500;
     align-self: flex-start;
     text-align: start;
+    font-size: 34px;
 }
-
 button.add-button {
-    width: 30px;
+    width: 200px;
+    height: 50px;
+    font-size: 34px;
     font-weight: 700;
     border-radius: 40px;
-    height: 30px;
+    border: 1px solid rgb(192, 192, 192);
     align-self: center;
-    background-color: green;
+    background-color:#3293f4;
     color: white;
 }
 
+.add-button:hover{
+    background-color: #1e62a7;
+    color: rgb(211, 211, 211);
+}
+
 div#item-name{
-    
-    width: 200px;
-    
-    
+    font-size: 34px;
+    width: 200px;   
 }
 
 .nutr-label{
     padding-right: 5px;
+    font-size: 34px;
 }
 
 #nutr-protein{

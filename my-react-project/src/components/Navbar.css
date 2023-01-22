@@ -1,0 +1,37 @@
+div.navbar-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 200px;
+    min-width: 100vw;
+    background-color:rgb(42, 72, 88);
+    color: wheat;
+    
+}
+
+div.navbar-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+.nav-link{
+    margin-left: 200px;
+    margin-right: 200px;
+    border: none;
+    background-color: transparent;
+    font-size:36px;
+    
+}
+a.link-btn{
+    text-decoration: none;
+}
+
+.link-btn{
+    color: aliceblue;
+}
+
+.logo-container{
+    height: 140px;
+}

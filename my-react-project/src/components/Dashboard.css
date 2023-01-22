@@ -1,0 +1,102 @@
+div.dashboard-container{
+  display: flex;
+  flex-direction: column;
+  }
+
+h2 {
+  align-self: center;
+  font-size: 48px;
+  color: whitesmoke;
+}
+
+
+
+
+div.search-result-container{
+  background-color: rgb(109, 109, 109);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+div.food-search {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 100wv;
+  height: 900px;
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.pexels.com/photos/361184/asparagus-steak-veal-steak-veal-361184.jpeg?auto=compress&cs=tinysrgb&w=1600'); 
+  background-size: cover;
+}
+
+div.search-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#user-input {
+  background-color: rgb(235, 238, 240);
+  align-self: center;
+  width: 60%;
+  height: 50px;
+  border-radius: 15px;
+  border: none;
+  margin: 40px;
+  
+}
+
+#user-input::placeholder{
+  font-size: 34px;
+}
+#user-input[type=text]{
+  padding: 12px 20px;
+  margin: 8px 0;
+  text-align: center;
+  font-size: 34px;
+  
+}
+
+button.search-button {
+  align-self: center;
+  background-color: #cf0e48;
+  color: #ffffff;
+  border-radius: 10px;
+  border: none;
+  width: 600px;
+  height: 70px;
+  font-size: 34px;
+  margin-top: 25px;
+}
+button.search-button:hover{
+  background-color: #870b30;
+  color: #d1d1d1;
+}
+
+div.user-greeting{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 100px;
+}
+
+
+.user-greeting h1 {
+  font-size: 76px
+}
+
+#totalcal{
+  color: green;
+}
+
+#protein{
+  color: green
+}
+
+#fat{
+  color: green;
+}
+#carb{
+  color: green;
+}
+

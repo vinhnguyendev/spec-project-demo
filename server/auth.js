@@ -1,4 +1,5 @@
 const bcrypt = require("bcryptjs");
+const { request, response } = require("express");
 
 const Pool = require("pg").Pool;
 const pool = new Pool({
@@ -15,11 +16,10 @@ module.exports = {
       const userRequest = await pool.query(
       `SELECT * FROM users WHERE email = '${email}'`
     );
+    //check if email match
     const user = userRequest.rows[0];
-    
-
     if (user) {
-      console.log("it's a login");
+      //check if password
       const authenticated = bcrypt.compareSync(password, user.password);
       if (authenticated) {
         console.log("it's auth!");
@@ -28,15 +28,16 @@ module.exports = {
         //session user
         req.session.user = userInfo;
       console.log(userInfo)
-        res.status(200).send(userInfo);
+      respond = {"true": true,"userId":userInfo.id}
+        res.status(200).send(respond);
       } else {
         console.log("it's not auth!");
-        res.status(403).send("Wrong password, Please try again!");
+        res.status(200).send(false);
       }
     } else if (!user) {
       if (!req.body.name) {
         console.log("Checking if user has name property")
-        res.status(403).send("Wrong email or password. Please try again!");
+        res.status(403).send(false);
       } else {
         console.log("new user been register");
         const salt = bcrypt.genSaltSync(10);
@@ -51,32 +52,14 @@ module.exports = {
       }
     }
   },
-  createUserOrder: (request, response) => {
-    const { name, cal, protein, fat, carb, date } = request.body;
-    console.log(request.body);
-    
-    console.log(request.session);
-   
-  
-    // pool.query(
-    //   'INSERT INTO order ("user_id","item_name","cal","protein","fat","carb","date") VALUES ($1, $2, $3, $4,$5,$6)',
-    //   [name, cal, protein, fat, carb, date],
-    //   (error, results) => {
-    //     if (error) {
-    //       throw error;
-    //     }
-    //     response.status(201).send(`User added with ID: ${results.insertid}`);
-    //   }
-    // );
-  },
-  
 
 
   checkUser: (req, res) => {
+    console.log(req.session.user)
     if (req.session.user) {
       res.status(200).send(req.session.user);
     } else {
-      res.status(500).send("no user currently login");
+      res.status(200).send("no user currently login");
     }
   },
 
